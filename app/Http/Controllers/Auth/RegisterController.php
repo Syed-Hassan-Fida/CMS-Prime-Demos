@@ -234,13 +234,15 @@ class RegisterController extends Controller
                 $message->subject('Token');
             });
 
-            // Redirect to the email verification page
-            // return redirect()->route('user.home')->with('success', 'An email has been sent with instructions to verify your account.');
-            return redirect()->back()->with(['msg' => __('You Will soon receive an email') .' '. '<a class="btn-boxed" href="' . route('user.home') . '">' . __('User Created') . '</a>', 'type' => 'success']);
+            return redirect()->back()->with([
+                'msg' => __('Trial successfully submitted. Check your email for further details'),
+                'type' => 'success'
+            ]);
         } catch (\Exception $e) {
-            // Handle the exception, e.g., log the error, return a response, etc.
-            return redirect()->route('user.home')->with('error', 'An error occurred while sending the email.');
+            return redirect()->back()->with([
+                'msg' => __('Your email is invalid'),
+                'type' => 'danger'
+            ]); 
         }
-        return redirect()->back()->with(['msg' => __('You Will soon receive an email') .' '. '<a class="btn-boxed" href="' . route('user.home') . '">' . __('User Created') . '</a>', 'type' => 'success']);
     }
 }
