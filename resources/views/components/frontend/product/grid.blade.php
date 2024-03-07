@@ -45,6 +45,7 @@
                 <a href="{{route('frontend.products.add.to.cart')}}" class="addtocart ajax_add_to_cart" data-product_id="{{$product->id}}" data-product_title="{{$product->title}}" data-product_quantity="1"><i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     {{get_static_option('product_add_to_cart_button_'.$user_select_lang_slug.'_text')}}</a>
             @endif
+            <a href="{{route('user.trial')}}" class="addtocart">Free Trial</a>
         @endif
     </div>
 </div>

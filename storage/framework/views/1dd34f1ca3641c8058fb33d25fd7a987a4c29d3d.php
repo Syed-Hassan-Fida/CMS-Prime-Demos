@@ -46,6 +46,7 @@
                 <a href="<?php echo e(route('frontend.products.add.to.cart')); ?>" class="addtocart ajax_add_to_cart" data-product_id="<?php echo e($product->id); ?>" data-product_title="<?php echo e($product->title); ?>" data-product_quantity="1"><i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     <?php echo e(get_static_option('product_add_to_cart_button_'.$user_select_lang_slug.'_text')); ?></a>
             <?php endif; ?>
+            <a href="<?php echo e(route('user.trial')); ?>" class="addtocart">Free Trial</a>
         <?php endif; ?>
     </div>
 </div><?php /**PATH C:\xampp7-2\htdocs\projects\Cms\@core\resources\views/components/frontend/product/grid.blade.php ENDPATH**/ ?>

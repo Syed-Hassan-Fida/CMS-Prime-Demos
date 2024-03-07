@@ -136,7 +136,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'country' => ['required', 'string'],
             'city' => ['required', 'string'],
-            'username' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
 
@@ -235,11 +235,12 @@ class RegisterController extends Controller
             });
 
             // Redirect to the email verification page
-            return redirect()->route('user.home')->with('success', 'An email has been sent with instructions to verify your account.');
+            // return redirect()->route('user.home')->with('success', 'An email has been sent with instructions to verify your account.');
+            return redirect()->back()->with(['msg' => __('You Will soon receive an email') .' '. '<a class="btn-boxed" href="' . route('user.home') . '">' . __('User Created') . '</a>', 'type' => 'success']);
         } catch (\Exception $e) {
             // Handle the exception, e.g., log the error, return a response, etc.
             return redirect()->route('user.home')->with('error', 'An error occurred while sending the email.');
         }
-
+        return redirect()->back()->with(['msg' => __('You Will soon receive an email') .' '. '<a class="btn-boxed" href="' . route('user.home') . '">' . __('User Created') . '</a>', 'type' => 'success']);
     }
 }

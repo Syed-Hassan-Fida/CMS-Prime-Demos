@@ -462,6 +462,8 @@ Route::group(['middleware' => ['setlang:frontend', 'globalVariable', 'maintains_
     Route::post('/login/reset-password', 'FrontendController@UserResetPassword')->name('user.reset.password.change');
     Route::post('/login/forget-password', 'FrontendController@sendUserForgetPasswordMail');
     Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
+    Route::get('/free-trial', 'Auth\RegisterController@show_trial_form')->name('user.trial');
+    Route::post('/save-free-trial', 'Auth\RegisterController@save_trial_form')->name('register.trial');
     //user email verify
     Route::get('/user/email-verify', 'UserDashboardController@user_email_verify_index')->name('user.email.verify');
     Route::get('/user/resend-verify-code', 'UserDashboardController@reset_user_email_verify_code')->name('user.resend.verify.mail');
